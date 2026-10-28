@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="InventarioEquiposFase3N.Models.Asignacion" Collapsed="true">
+    <Position X="2.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABIJABCEAAAAAgAIABAACAAgAAAAAAgAAAAAAAAAAo=</HashCode>
+      <FileName>Models\Asignacion.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="InventarioEquiposFase3N.Models.Departamento" Collapsed="true">
+    <Position X="4" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAQAAAAIAAAgAAAgAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Models\Departamento.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="InventarioEquiposFase3N.Models.Empleado" Collapsed="true">
+    <Position X="4.25" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AIACAAAAAAAAAAQEIABAgQAAoIAAAAABAAAAAAIACAA=</HashCode>
+      <FileName>Models\Empleado.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="InventarioEquiposFase3N.Models.Equipo">
+    <Position X="4.5" Y="5.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Events" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EAAAhBAAAQASQAAAJAAAAABCgAAAAQAAAAgAgAAAAEg=</HashCode>
+      <FileName>Models\Equipo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="InventarioEquiposFase3N.Models.Mantenimiento" Collapsed="true">
+    <Position X="4" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAALAAAAACAAACkUIAAAAAABgAAAAAAgAAAAgAAAAAA=</HashCode>
+      <FileName>Models\Mantenimiento.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="InventarioEquiposFase3N.Repositorios.RepositorioAsignaciones">
+    <Position X="7.5" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAABAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Repositorios\RepositorioAsignaciones.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.Repositorios.RepositorioBase&lt;T&gt;">
+    <Position X="8.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAQAAQAAAgAAAgAIAAAAAAAAAAIICAABAAAAAA=</HashCode>
+      <FileName>Repositorios\RepositorioBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="InventarioEquiposFase3N.Repositorios.RepositorioDepartamentos" Collapsed="true">
+    <Position X="2.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositorios\RepositorioDepartamentos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.Repositorios.RepositorioEmpleados" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAQAAAgAAQAAAAAAAAAAAAAIAAAAAACIACA=</HashCode>
+      <FileName>Repositorios\RepositorioEmpleados.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_empleados" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="InventarioEquiposFase3N.Repositorios.RepositorioMantenimientos" Collapsed="true">
+    <Position X="2.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositorios\RepositorioMantenimientos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.Controllers.AsignacionController">
+    <Position X="6.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAARAAQAAAgABAAAAAAAAAAAAAAIQIAAAAAIAAA=</HashCode>
+      <FileName>Controllers\AsignacionController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_repositorioAsignacion" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.Controllers.EmpleadoController" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAQAAAgAAAAAAgAAAAAAAAAIQAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\EmpleadoController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_repositorioEmpleado" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.Controllers.EquiposController" Collapsed="true">
+    <Position X="2.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAQAAQAAAgABAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\EquiposController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_repositorioEquipos" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.frmPrincipal" Collapsed="true">
+    <Position X="0.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAsIQCCCgQLIQDIGCAUQwCYJIBQBIAAAgAAABkgEA=</HashCode>
+      <FileName>Views\frmPrincipal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.frmEquipos" Collapsed="true">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ggAIAgBAACAABBQIAECAAUCCAAAAAAACAAAAAAAAAJA=</HashCode>
+      <FileName>Views\frmEquipos.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_Controller" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.frmEquipoModal" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAASAAAJAgAACAARECAAAAgAAAAIAAAAQAAAE=</HashCode>
+      <FileName>Views\frmEquipoModal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.frmEmpleados" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAACAAQgAAAECAAAgCgAAAAAACAAAACAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.frmEmpleadoModal" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgAAAAAAgGAACJAACBCAQAESACBAAAAAASAAAEBAAAA=</HashCode>
+      <FileName>Views\frmEmpleadoModal.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_controller" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.frmDepartamentos" Collapsed="true">
+    <Position X="0.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAECAAAACBAAAAAAKAAAAAAAggAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.frmDepartamentoModal" Collapsed="true">
+    <Position X="0.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAJAAAACAABECACAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.frmConsultas" Collapsed="true">
+    <Position X="0.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACACABAgAACAABACAAgABAACAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.frmAsignarEquipos" Collapsed="true">
+    <Position X="0.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AoAAARAAACAAABACAACAAEACAgAAAAACAAAAQAABEAg=</HashCode>
+      <FileName>Views\frmAsignarEquipos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventarioEquiposFase3N.Repositorios.RepositorioEquipos">
+    <Position X="4.25" Y="4" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAQAAARAEQAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Repositorios\RepositorioEquipos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="InventarioEquiposFase3N.Repositorios.IRepositorio&lt;T&gt;" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAQAAAgAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Repositorios\IRepositorio.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="InventarioEquiposFase3N.Models.Estado">
+    <Position X="6.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAABAAAAAAAAAQAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Estado.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="InventarioEquiposFase3N.Models.TipoEquipo">
+    <Position X="6.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAADAAAAAQACAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TipoEquipo.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="InventarioEquiposFase3N.Models.TipoMantenimiento" Collapsed="true">
+    <Position X="6.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Models\TipoMantenimiento.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
