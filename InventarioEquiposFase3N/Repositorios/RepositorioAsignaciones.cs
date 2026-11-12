@@ -26,6 +26,7 @@ namespace InventarioEquiposFase3N.Repositorios
 
             if (asignacionActiva != null)
             {
+
                 throw new InvalidOperationException(
                     $"El empleado ya tiene el equipo '{asignacionActiva.Equipo}' asignado hasta el {asignacionActiva.FechaDevolucion:dd/MM/yyyy}. " +
                     $"Debe registrar la devolución antes de asignarle uno nuevo.");
@@ -38,6 +39,7 @@ namespace InventarioEquiposFase3N.Repositorios
 
             if (equipoOcupado != null)
             {
+
                 throw new InvalidOperationException(
                     $"El equipo '{entidad.Equipo}' ya está asignado al empleado '{equipoOcupado.Empleado}'.");
             }
@@ -52,13 +54,30 @@ namespace InventarioEquiposFase3N.Repositorios
             {
                 throw new InvalidOperationException("El equipo seleccionado no existe.");
             }
-            if (equipo.Estado != Estado.Disponible)
-            {
-                throw new InvalidOperationException($"El equipo no está disponible (Estado: {equipo.Estado}).");
-            }
+            
 
             
             base.Agregar(entidad);
+        }
+        public override void Actualizar(Asignacion entidad)
+        {
+
+
+            var empleadoOcupado = ObtenerTodos()
+       .FirstOrDefault(a => a.Empleado == entidad.Empleado && a.IdAsignacion != entidad.IdAsignacion);
+
+            if (empleadoOcupado != null)
+                throw new InvalidOperationException(
+                    $"El empleado ya tiene el equipo '{empleadoOcupado.Equipo}'");
+
+            var equipoAsignado = ObtenerTodos()
+                .FirstOrDefault(a => a.Equipo == entidad.Equipo && a.IdAsignacion != entidad.IdAsignacion);
+
+            if (equipoAsignado != null)
+                throw new InvalidOperationException(
+                    $"Este equipo ya está asignado al empleado: '{equipoAsignado.Empleado}'");
+
+            base.Actualizar(entidad);
         }
     }
 

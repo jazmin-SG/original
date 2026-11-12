@@ -21,6 +21,7 @@ namespace InventarioEquiposFase3N
             }
             InitializeComponent();
             ConfigurarTabla();
+            ActualizarTabla();
             cmbEmpleadoAsignar.DisplayMember = nameof(Empleado.Nombre);
             cmbEquipoAsignar.DisplayMember = nameof(Equipo.Codigo);
 
@@ -135,22 +136,22 @@ namespace InventarioEquiposFase3N
                     return;
                 }
 
-                var equipo = _repoEquipo.BuscarPorCodigo(asignacionSeleccionada.Equipo);
+                //var equipo = _repoEquipo.BuscarPorCodigo(asignacionSeleccionada.Equipo);
 
-                if (equipo != null)
-                {
-                    equipo.Estado = Estado.Disponible;
-                    _repoEquipo.Actualizar(equipo);
-                }
-                else
-                {
-                    MessageBox.Show("No se encontró el equipo en la base de datos (la lista está vacía).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                //if (equipo != null)
+                //{
+                //    equipo.Estado = Estado.Disponible;
+                //    _repoEquipo.Actualizar(equipo);
+                //}
+                //else
+                //{
+                //    MessageBox.Show("No se encontró el equipo en la base de datos (la lista está vacía).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
 
                 _asignacionController.Eliminar(asignacionSeleccionada);
 
-                MessageBox.Show("Equipo devuelto a estado 'Disponible' y asignación eliminada.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Equipo devuelto y asignación eliminada.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 ActualizarTabla();
             }

@@ -43,23 +43,31 @@ namespace InventarioEquiposFase3N.Controllers
 
             var respaldo = new Asignacion
             {
+                IdAsignacion = original.IdAsignacion,
                 Equipo = original.Equipo,
                 Empleado = original.Empleado,
                 FechaAsignacion = original.FechaAsignacion,
                 FechaDevolucion = original.FechaDevolucion,
-                Observacion = original.Observacion
+                Observacion = original.Observacion,
+                Estado = original.Estado
             };
-            copiarPropiedades(original, copia);
+            copiarPropiedades(destino: original, fuente: copia);
             try
             {
                 _repositorioAsignacion.Actualizar(original);
 
             }
+
+            catch (InvalidOperationException)
+            {
+                copiarPropiedades(destino: original, fuente: respaldo);   
+                throw;
+            }
+
             catch (Exception ex)
             {
-                copiarPropiedades(respaldo, original);
-                throw new Exception("Error al actualizar la asignación: " + ex.Message);
-
+                copiarPropiedades(destino: original, fuente: respaldo);
+                throw new Exception("Error al actualizar la asignación: " + ex.Message, ex);
             }
         }
         public void Eliminar(Asignacion asignacion)
@@ -81,13 +89,15 @@ namespace InventarioEquiposFase3N.Controllers
             return _repositorioEquipos.ObtenerTodos();
         }
 
-        private static void copiarPropiedades(Asignacion original, Asignacion copia)
+        private static void copiarPropiedades(Asignacion destino, Asignacion fuente)
         {
-            original.Empleado = copia.Empleado;
-            original.Equipo = copia.Equipo;
-            original.FechaAsignacion = copia.FechaAsignacion;
-            original.FechaDevolucion = copia.FechaDevolucion;
-            original.Observacion = copia.Observacion;
+            destino.IdAsignacion = fuente.IdAsignacion;
+            destino.Empleado = fuente.Empleado;
+            destino.Equipo = fuente.Equipo;
+            destino.FechaAsignacion = fuente.FechaAsignacion;
+            destino.FechaDevolucion = fuente.FechaDevolucion;
+            destino.Observacion = fuente.Observacion;
+            destino.Estado = fuente.Estado;
         }
 
     }

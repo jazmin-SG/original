@@ -19,6 +19,7 @@ namespace InventarioEquiposFase3N
             var repositorioEquipos = new RepositorioEquipos();
             var equiposController = new EquiposController(repositorioEquipos);
             var repositorioAsignacion = new RepositorioAsignaciones(repositorioEquipos, repositorioEmpleado);
+            repositorioAsignacion.Leer();
             var asignacionController = new AsignacionController(repositorioAsignacion, repositorioEquipos, repositorioEmpleado);
             var repositorioDepartamentos = new RepositorioDepartamentos();
             var departamentosController = new DepartamentosController(repositorioDepartamentos);

@@ -10,6 +10,8 @@ namespace InventarioEquiposFase3N.Repositorios
         void Agregar(T entidad);
         void Eliminar(T entidad);
         void Actualizar(T entidad);
+        void Guardar();
+        void Leer();
         BindingList<T> ObtenerTodos();
     }
 }

@@ -11,6 +11,9 @@ namespace InventarioEquiposFase3N
     {
         private readonly AsignacionController _controller;
         private readonly RepositorioEquipos _repoEquipo;
+       
+        
+
 
 
         public Asignacion AsignacionActual { get; private set; }
@@ -35,8 +38,10 @@ namespace InventarioEquiposFase3N
         private void frmEditarAsignacion_Load(object sender, EventArgs e)
         {
 
-            var empleado = _controller.ObtenerEmpleados().FirstOrDefault(x => x.Dui == AsignacionActual.Empleado);
+            var empleado = _controller.ObtenerEmpleados().FirstOrDefault(x => x.Nombre == AsignacionActual.Empleado);
             cmbEmpleado.SelectedItem = empleado;
+
+            
 
 
             var equipo = _repoEquipo.BuscarPorCodigo(AsignacionActual.Equipo);
@@ -49,6 +54,7 @@ namespace InventarioEquiposFase3N
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            
             if (cmbEmpleado.SelectedItem is not Empleado empleado ||
                 cmbEquipo.SelectedItem is not Equipo equipo)
             {
@@ -61,6 +67,8 @@ namespace InventarioEquiposFase3N
                 MessageBox.Show("La fecha de devolución no puede ser anterior a la de asignación.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+             
+
 
 
             AsignacionActual.Empleado = empleado.Nombre;
@@ -69,7 +77,11 @@ namespace InventarioEquiposFase3N
             AsignacionActual.FechaDevolucion = dtpFechaDevolucion.Value;
 
 
-            DialogResult = DialogResult.OK;
+           DialogResult = DialogResult.OK;
+
+
+
+            
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
