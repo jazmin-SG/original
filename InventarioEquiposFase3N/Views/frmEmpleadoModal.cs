@@ -1,5 +1,6 @@
 ﻿using InventarioEquiposFase3N.Controllers;
 using InventarioEquiposFase3N.Models;
+using InventarioEquiposFase3N.Services;
 using System;
 using System.Windows.Forms;
 
@@ -10,15 +11,30 @@ namespace InventarioEquiposFase3N
         public Empleado EmpleadoActual { get; }
         private readonly EmpleadoController _controller;
         private readonly DepartamentosController _departamentosController;
+        private readonly ServicioFotoEmpleado _fotos;
+        private readonly Image _imagenSinFoto;
+        private Image? _imagenTemporal;
+        public string? ArchivoFotoSeleccionado { get; private set; }
+        public bool QuitarFoto { get; private set; }
 
-        public frmEmpleadoModal(EmpleadoController controller, DepartamentosController departamentosController, Empleado? empleado = null)
+
+        public frmEmpleadoModal(EmpleadoController controller, DepartamentosController departamentosController, ServicioFotoEmpleado fotos, Empleado? empleado = null)
         {
             InitializeComponent();
             _controller = controller;
             _departamentosController = departamentosController;
+            _fotos = fotos;
+            _imagenSinFoto = ServicioFotoEmpleado.CrearImagenSinFoto(100);
             EmpleadoActual = empleado ?? new Empleado();
             Text = empleado == null ? "Nuevo Empleado" : "Editar Empleado";
             ConfigurarBinding();
+            MostrarImagen(_fotos.CargarImagen(EmpleadoActual.FotoRuta));
+
+            FormClosed += (_, _) =>
+            {
+                _imagenTemporal?.Dispose();
+                _imagenSinFoto.Dispose();
+            };
         }
 
         private void ConfigurarBinding()
@@ -87,6 +103,67 @@ namespace InventarioEquiposFase3N
         {
             DialogResult = DialogResult.Cancel;
             Close();
+        }
+
+        private void btnAgregarFoto_Click(object sender, EventArgs e)
+        {
+            using var dialogo = new OpenFileDialog
+            {
+                Title = "Seleccionar fotografía del empleado",
+                Filter = "Fotografías JPG o PNG|*.jpg;*.jpeg;*.png|Todos los archivos|*.*",
+                FilterIndex = 1,
+                CheckFileExists = true,
+                Multiselect = false
+            };
+
+            if (dialogo.ShowDialog(this) != DialogResult.OK)
+                return;
+
+            try
+            {
+                var archivo = new FileInfo(dialogo.FileName);
+                if (archivo.Length == 0 || archivo.Length > 8 * 1024 * 1024)
+                    throw new ArgumentException("La imagen no puede superar 8 MB.");
+
+                string extension = archivo.Extension.ToLowerInvariant();
+                if (extension is not (".jpg" or ".jpeg" or ".png"))
+                    throw new ArgumentException("Seleccione una fotografía JPG o PNG.");
+
+                using var archivoImagen = File.OpenRead(dialogo.FileName);
+                using Image original = Image.FromStream(archivoImagen, false, true);
+                if (original.Width > 6000 || original.Height > 6000)
+                    throw new ArgumentException("La imagen supera las dimensiones máximas permitidas.");
+
+                var vistaPrevia = new Bitmap(original);
+
+                MostrarImagen(vistaPrevia);
+                ArchivoFotoSeleccionado = dialogo.FileName;
+                QuitarFoto = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"No se pudo cargar la fotografía.\n\n{ex.Message}",
+                    "Imagen no válida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            MostrarImagen(null);
+            ArchivoFotoSeleccionado = null;
+            QuitarFoto = true;
+        }
+
+        private void MostrarImagen(Image? nuevaImagen)
+        {
+            picFoto.Image = nuevaImagen ?? _imagenSinFoto;
+            _imagenTemporal?.Dispose();
+            _imagenTemporal = nuevaImagen;
+        }
+
+        private void frmEmpleadoModal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

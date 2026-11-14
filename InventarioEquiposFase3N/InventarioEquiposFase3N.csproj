@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Foto\empleado_anonimo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Foto\empleado_anonimo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Views\" />
   </ItemGroup>
 

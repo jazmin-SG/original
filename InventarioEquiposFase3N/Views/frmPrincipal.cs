@@ -1,4 +1,5 @@
 ﻿using InventarioEquiposFase3N.Controllers;
+using InventarioEquiposFase3N.Services;
 using System;
 using System.Drawing;
 using System.Drawing.Text;
@@ -16,8 +17,9 @@ namespace InventarioEquiposFase3N
         private readonly Repositorios.RepositorioEquipos _repoEquipos;
 
         private readonly Controllers.DepartamentosController _departamentosController;
+        private readonly ServicioFotoEmpleado _servicioFotos;
 
-        public frmPrincipal(Controllers.EmpleadoController empleadoController, Controllers.EquiposController equiposController, Controllers.AsignacionController asignacionController, Repositorios.RepositorioEquipos repoEquiposs, Controllers.DepartamentosController departamentosController)
+        public frmPrincipal(Controllers.EmpleadoController empleadoController, Controllers.EquiposController equiposController, Controllers.AsignacionController asignacionController, Repositorios.RepositorioEquipos repoEquiposs, Controllers.DepartamentosController departamentosController, ServicioFotoEmpleado servicioFotos)
         {
             InitializeComponent();
 
@@ -26,6 +28,7 @@ namespace InventarioEquiposFase3N
             _asignacionController = asignacionController;
             _repoEquipos = repoEquiposs;
             _departamentosController = departamentosController;
+            _servicioFotos = servicioFotos;
 
             pictureBox1.BackColor = Color.FromArgb(248, 249, 250);
 
@@ -47,7 +50,7 @@ namespace InventarioEquiposFase3N
 
         private void mnuEmpleado_Click(object sender, EventArgs e)
         {
-            frmEmpleados frm = new frmEmpleados(_empleadoController, _departamentosController);
+            frmEmpleados frm = new frmEmpleados(_empleadoController, _departamentosController, _servicioFotos);
             frm.MdiParent = this;
             frm.Show();
         }

@@ -51,7 +51,7 @@ namespace InventarioEquiposFase3N
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolBtnNuevoEmpleado, toolBtnEditarEmpleados, toolBtnEliminarEmpleado, toolBtnBuscarEmpleado, txtBuscarEmpleado });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(957, 27);
+            toolStrip1.Size = new Size(1500, 27);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -118,12 +118,12 @@ namespace InventarioEquiposFase3N
             dgvEmpleados.ReadOnly = true;
             dgvEmpleados.RowHeadersWidth = 51;
             dgvEmpleados.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dgvEmpleados.Size = new Size(926, 160);
+            dgvEmpleados.Size = new Size(1476, 368);
             dgvEmpleados.TabIndex = 1;
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(787, 206);
+            btnSalir.Location = new Point(1349, 441);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(151, 29);
             btnSalir.TabIndex = 2;
@@ -133,7 +133,7 @@ namespace InventarioEquiposFase3N
             // 
             // btnOrdenar
             // 
-            btnOrdenar.Location = new Point(12, 206);
+            btnOrdenar.Location = new Point(12, 431);
             btnOrdenar.Name = "btnOrdenar";
             btnOrdenar.Size = new Size(181, 29);
             btnOrdenar.TabIndex = 3;
@@ -145,7 +145,7 @@ namespace InventarioEquiposFase3N
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(957, 266);
+            ClientSize = new Size(1500, 470);
             Controls.Add(btnOrdenar);
             Controls.Add(btnSalir);
             Controls.Add(dgvEmpleados);

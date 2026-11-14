@@ -107,9 +107,25 @@ namespace InventarioEquiposFase3N.Models
             }
         }
 
+
+        private string? _fotoRuta;
+        public string? FotoRuta
+        {
+            get => _fotoRuta;
+            set
+            {
+                if (_fotoRuta != value)
+                {
+                    _fotoRuta = value;
+                    OnPropertyChanged(nameof(FotoRuta));
+                }
+            }
+        }
+
+
         public Empleado() { }
 
-        public Empleado(int id, string dui, string nombre, string apellido, string cargo, string departamento, string correo)
+        public Empleado(int id, string dui, string nombre, string apellido, string cargo, string departamento, string correo, string? fotoRuta = null)
         {
             Id = id;
             Dui = dui;
@@ -118,6 +134,7 @@ namespace InventarioEquiposFase3N.Models
             Cargo = cargo;
             Departamento = departamento;
             Correo = correo;
+            FotoRuta = fotoRuta;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
