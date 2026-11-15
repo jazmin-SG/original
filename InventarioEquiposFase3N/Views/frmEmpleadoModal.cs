@@ -2,6 +2,7 @@
 using InventarioEquiposFase3N.Models;
 using InventarioEquiposFase3N.Services;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace InventarioEquiposFase3N
@@ -16,6 +17,8 @@ namespace InventarioEquiposFase3N
         private Image? _imagenTemporal;
         public string? ArchivoFotoSeleccionado { get; private set; }
         public bool QuitarFoto { get; private set; }
+        private static readonly Regex RegexCorreo = new(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.Compiled);
+        private static readonly Regex RegexSoloLetras = new(@"^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$", RegexOptions.Compiled);
 
 
         public frmEmpleadoModal(EmpleadoController controller, DepartamentosController departamentosController, ServicioFotoEmpleado fotos, Empleado? empleado = null)
@@ -68,16 +71,31 @@ namespace InventarioEquiposFase3N
                 errorProvider1.SetError(txtNombre, "El nombre se encuentra vacío");
                 esValido = false;
             }
+            else if(!RegexSoloLetras.IsMatch(txtNombre.Text))
+            {
+                errorProvider1.SetError(txtNombre, "El nombre solo puede contener letras y espacios");
+                esValido = false;
+            }
 
             if (string.IsNullOrWhiteSpace(txtApellido.Text))
             {
                 errorProvider1.SetError(txtApellido, "El apellido se encuentra vacío");
                 esValido = false;
             }
+            else if(!RegexSoloLetras.IsMatch(txtApellido.Text))
+            {
+                errorProvider1.SetError(txtApellido, "El apellido solo puede contener letras y espacios");
+                esValido = false;
+            }
 
             if (string.IsNullOrWhiteSpace(txtCargo.Text))
             {
                 errorProvider1.SetError(txtCargo, "El cargo se encuentra vacío");
+                esValido = false;
+            }
+            else if (!RegexSoloLetras.IsMatch(txtCargo.Text))
+            {
+                errorProvider1.SetError(txtCargo, "El cargo solo puede contener letras y espacios");
                 esValido = false;
             }
 
@@ -90,6 +108,11 @@ namespace InventarioEquiposFase3N
             if (string.IsNullOrEmpty(txtCorreo.Text))
             {
                 errorProvider1.SetError(txtCorreo, "El correo no puede encontrarse vacío");
+                esValido = false;
+            }
+            else if(!RegexCorreo.IsMatch(txtCorreo.Text))
+            {
+                errorProvider1.SetError(txtCorreo, "El correo no tiene un formato válido");
                 esValido = false;
             }
 
