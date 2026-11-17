@@ -28,6 +28,7 @@ namespace InventarioEquiposFase3N.Repositorios
                 equipoExistente.AnioGarantia = entidad.AnioGarantia;
                 equipoExistente.Estado = entidad.Estado;
 
+
                 Guardar();
                 _entidades.ResetItem(_entidades.IndexOf(equipoExistente));
             }

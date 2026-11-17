@@ -92,6 +92,7 @@ namespace InventarioEquiposFase3N
             dgvEquipos.AllowUserToDeleteRows = false;
             dgvEquipos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvEquipos.BackgroundColor = Color.White;
+            dgvEquipos.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(220, 232, 245);
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
@@ -118,6 +119,7 @@ namespace InventarioEquiposFase3N
             btnSalir.TabIndex = 9;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // dtpFecha
             // 
