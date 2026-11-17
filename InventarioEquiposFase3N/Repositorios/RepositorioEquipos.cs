@@ -1,6 +1,7 @@
 ﻿using InventarioEquiposFase3N.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 namespace InventarioEquiposFase3N.Repositorios
 {
@@ -74,6 +75,33 @@ namespace InventarioEquiposFase3N.Repositorios
         public Equipo? BuscarPorCodigo(string codigo)
         {
             return _entidades.FirstOrDefault(e => e.Codigo == codigo);
+        }
+
+        public BindingList<Equipo> Buscar(string codigo, Estado? estado, DateTime? fechaCompra)
+        {
+            
+            var query = _entidades.AsQueryable();
+
+            
+            if (!string.IsNullOrWhiteSpace(codigo))
+            {
+                query = query.Where(e => e.Codigo.Contains(codigo, StringComparison.OrdinalIgnoreCase));
+            }
+
+           
+            if (estado.HasValue)
+            {
+                query = query.Where(e => e.Estado == estado.Value);
+            }
+
+            
+            if (fechaCompra.HasValue)
+            {
+               
+                query = query.Where(e => e.FechaCompra.Date == fechaCompra.Value.Date);
+            }
+
+            return new BindingList<Equipo>(query.ToList());
         }
     }
 }

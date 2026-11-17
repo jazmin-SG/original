@@ -78,7 +78,7 @@ namespace InventarioEquiposFase3N
 
         private void MnuConsultas_Click(object sender, EventArgs e)
         {
-            frmConsultas frm = new frmConsultas();
+            frmConsultas frm = new frmConsultas(_equiposController);
             frm.MdiParent = this;
             frm.Show();
         }

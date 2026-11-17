@@ -122,6 +122,11 @@ namespace InventarioEquiposFase3N.Controllers
 
             return _repositorioEquipos.BuscarPorCodigo(codigo);
         }
-       
+
+        public BindingList<Equipo> BuscarEquipos(string codigo, Estado? estado, DateTime? fechaCompra)
+        {
+            return _repositorioEquipos.Buscar(codigo, estado, fechaCompra);
+        }
+
     }
 }
