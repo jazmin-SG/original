@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="InventarioApp/InventarioApp.vdproj" Type="Installer">
+    <Build />
+  </Project>
   <Project Path="InventarioEquiposFase3N/InventarioEquiposFase3N.csproj" />
 </Solution>
