@@ -10,10 +10,19 @@ namespace InventarioEquiposFase3N.Repositorios
     public class RepositorioDepartamentos : RepositorioBase<Departamento>
     {
         public RepositorioDepartamentos(string? rutaArchivo = null)
-            : base(rutaArchivo ?? Path.Combine(AppContext.BaseDirectory, "Datos", "departamentos.json"))
+            : base(rutaArchivo ?? Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                "InventarioEquiposFase3N", "Departamentos", "departamentos.json"))
         {
             if (!File.Exists(RutaArchivo))
             {
+                string anterior = Path.Combine(AppContext.BaseDirectory, "Datos", "departamentos.json");
+                if (rutaArchivo == null && File.Exists(anterior))
+                {
+                    var existente = new RepositorioDepartamentos(anterior);
+                    foreach (var departamento in existente.ObtenerTodos())
+                        _entidades.Add(departamento);
+                }
                 Guardar();
             }
 

@@ -9,12 +9,18 @@ namespace InventarioEquiposFase3N
     {
         private readonly DepartamentosController _departamentosController;
 
+        private readonly ToolStripTextBox filtro = new() { AccessibleName = "Buscar departamentos" };
+
         public frmDepartamentos(DepartamentosController departamentosController)
         {
             InitializeComponent();
 
             _departamentosController = departamentosController;
 
+            toolStrip1.Items.Add(new ToolStripSeparator());
+            toolStrip1.Items.Add(new ToolStripLabel("Buscar"));
+            toolStrip1.Items.Add(filtro);
+            filtro.TextChanged += (_, _) => RefrescarGrid();
             RefrescarGrid();
         }
 
@@ -37,6 +43,7 @@ namespace InventarioEquiposFase3N
                 );
 
                 _departamentosController.Agregar(departamento);
+                filtro.Clear();
 
                 RefrescarGrid();
 
@@ -116,7 +123,9 @@ namespace InventarioEquiposFase3N
         {
             dtgDepartamentos.Rows.Clear();
 
-            foreach (Departamento departamento in _departamentosController.ObtenerTodos())
+            foreach (Departamento departamento in _departamentosController.Buscar(filtro.Text.Trim())
+                .OrderBy(d => d.Nombre, StringComparer.CurrentCultureIgnoreCase)
+                .ThenBy(d => d.Codigo, StringComparer.OrdinalIgnoreCase))
             {
                 dtgDepartamentos.Rows.Add(
                     departamento.Codigo,
