@@ -8,10 +8,13 @@ namespace InventarioEquiposFase3N.Repositorios
 {
     public class RepositorioEmpleados : RepositorioBase<Empleado>
     {
-        public RepositorioEmpleados() : base("empleados.json") 
+        public RepositorioEmpleados(string? rutaArchivo = null) : base(rutaArchivo ?? Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+        "InventarioEquiposFase3N", "Empleados", "empleados.json")) 
         {
             Leer();
         }
+
         public override void Agregar(Empleado entidad)
         {
             if(ExisteDui(entidad.Dui))

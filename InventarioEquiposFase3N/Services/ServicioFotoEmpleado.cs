@@ -14,10 +14,13 @@ namespace InventarioEquiposFase3N.Services
         private const long TamañoMaximoBytes = 8 * 1024 * 1024;
         private readonly string _carpetaFotos;
 
-        public ServicioFotoEmpleado(string carpetaFotos) 
+        public ServicioFotoEmpleado(string? carpetaFotos = null) 
         {
-            ArgumentException.ThrowIfNullOrWhiteSpace(carpetaFotos);
-            _carpetaFotos = Path.Combine(Path.GetFullPath(carpetaFotos), "FotosEmpleados");
+            string rutaSegura = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            "InventarioEquiposFase3N");
+
+            _carpetaFotos = Path.Combine(rutaSegura, "FotosEmpleados");
         }
 
         public string GuardarFoto(int empleadoId, string rutaOrigen)

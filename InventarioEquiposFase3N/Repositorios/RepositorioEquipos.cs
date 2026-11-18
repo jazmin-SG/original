@@ -7,7 +7,9 @@ namespace InventarioEquiposFase3N.Repositorios
 {
     public class RepositorioEquipos : RepositorioBase<Equipo>
     {
-        public RepositorioEquipos() : base("equipos.json")
+        public RepositorioEquipos(string? rutaArchivo = null) : base(rutaArchivo ?? Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+        "InventarioEquiposFase3N", "Equipos", "equipos.json"))
         {
             Leer();
         }

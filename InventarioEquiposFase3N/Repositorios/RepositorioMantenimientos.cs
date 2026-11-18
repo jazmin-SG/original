@@ -8,8 +8,11 @@ namespace InventarioEquiposFase3N.Repositorios
 {
     public class RepositorioMantenimientos : RepositorioBase<Mantenimiento>
     {
-        public RepositorioMantenimientos(string rutaArchivo = "mantenimientos.json") : base(rutaArchivo)
+        public RepositorioMantenimientos(string? rutaArchivo = null) : base(rutaArchivo ?? Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+        "InventarioEquiposFase3N", "Mantenimientos", "mantenimientos.json"))
         {
+            Leer();
         }
 
        

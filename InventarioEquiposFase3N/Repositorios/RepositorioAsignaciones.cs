@@ -10,8 +10,10 @@ namespace InventarioEquiposFase3N.Repositorios
         private readonly RepositorioEquipos _repositorioEquipos;
         private readonly RepositorioEmpleados _repositorioEmpleados;
 
-        public RepositorioAsignaciones(RepositorioEquipos equipos, RepositorioEmpleados empleados, string? carpetaDatos = null)
-            : base(Path.Combine(carpetaDatos ?? "CarpetaPredeterminada", "asignaciones.json"))
+        public RepositorioAsignaciones(RepositorioEquipos equipos, RepositorioEmpleados empleados, string? rutaArchivo = null)
+            : base(rutaArchivo ?? Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                "InventarioEquiposFase3N", "Asignaciones", "asignaciones.json"))
         {
             _repositorioEquipos = equipos ?? throw new ArgumentNullException(nameof(equipos));
             _repositorioEmpleados = empleados ?? throw new ArgumentNullException(nameof(empleados));
