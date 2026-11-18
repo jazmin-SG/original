@@ -135,9 +135,11 @@ namespace InventarioEquiposFase3N
             // 
             // picFoto
             // 
+            picFoto.BackColor = SystemColors.ButtonHighlight;
             picFoto.Location = new Point(499, 4);
             picFoto.Name = "picFoto";
-            picFoto.Size = new Size(200, 203);
+            picFoto.Size = new Size(213, 215);
+            picFoto.SizeMode = PictureBoxSizeMode.CenterImage;
             picFoto.TabIndex = 12;
             picFoto.TabStop = false;
             // 

@@ -39,7 +39,6 @@ namespace InventarioEquiposFase3N
             txtBuscarEmpleado = new ToolStripTextBox();
             dgvEmpleados = new DataGridView();
             btnSalir = new Button();
-            btnOrdenar = new Button();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
             SuspendLayout();
@@ -123,7 +122,7 @@ namespace InventarioEquiposFase3N
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(1349, 441);
+            btnSalir.Location = new Point(1337, 429);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(151, 29);
             btnSalir.TabIndex = 2;
@@ -131,22 +130,12 @@ namespace InventarioEquiposFase3N
             btnSalir.UseVisualStyleBackColor = true;
             btnSalir.Click += btnSalir_Click;
             // 
-            // btnOrdenar
-            // 
-            btnOrdenar.Location = new Point(12, 431);
-            btnOrdenar.Name = "btnOrdenar";
-            btnOrdenar.Size = new Size(181, 29);
-            btnOrdenar.TabIndex = 3;
-            btnOrdenar.Text = "Ordenar por apellido";
-            btnOrdenar.UseVisualStyleBackColor = true;
-            // 
             // frmEmpleados
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1500, 470);
-            Controls.Add(btnOrdenar);
             Controls.Add(btnSalir);
             Controls.Add(dgvEmpleados);
             Controls.Add(toolStrip1);
@@ -169,6 +158,5 @@ namespace InventarioEquiposFase3N
         private Button btnSalir;
         private ToolStripTextBox txtBuscarEmpleado;
         private ToolStripButton toolBtnBuscarEmpleado;
-        private Button btnOrdenar;
     }
 }

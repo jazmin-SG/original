@@ -48,31 +48,34 @@ namespace InventarioEquiposFase3N
 
         private void frmConsultas_Load(object sender, EventArgs e)
         {
-            cmbEstado.DataSource = Enum.GetValues(typeof(Estado));
-            cmbEstado.SelectedIndex = -1;
 
             
+            cmbEstado.DataSource = Enum.GetValues<Estado>().Cast<object>().ToList().Prepend("Todas").ToList();
+
+            cmbEstado.SelectedIndex = -1;
+
+
             dtpFecha.ShowCheckBox = true;
             dtpFecha.Checked = false;
 
             txtCodigo.TextChanged += ControlesBusqueda_Cambiaron;
             cmbEstado.SelectedIndexChanged += ControlesBusqueda_Cambiaron;
             dtpFecha.ValueChanged += ControlesBusqueda_Cambiaron;
-           
+
 
             EjecutarBusqueda();
         }
 
         private void ControlesBusqueda_Cambiaron(object sender, EventArgs e)
         {
-            _timerBusqueda.Stop(); 
-            _timerBusqueda.Start(); 
+            _timerBusqueda.Stop();
+            _timerBusqueda.Start();
         }
 
         private void TimerBusqueda_Tick(object sender, EventArgs e)
         {
-            _timerBusqueda.Stop(); 
-            EjecutarBusqueda();    
+            _timerBusqueda.Stop();
+            EjecutarBusqueda();
         }
 
         private void EjecutarBusqueda()
@@ -93,19 +96,23 @@ namespace InventarioEquiposFase3N
                     fechaSeleccionada = dtpFecha.Value;
                 }
 
-                
+
                 var resultados = _equiposController.BuscarEquipos(codigo, estadoSeleccionado, fechaSeleccionada);
 
-                
+
+
                 dgvEquipos.DataSource = resultados;
             }
             catch (Exception ex)
             {
-                
+
                 Console.WriteLine(ex.Message);
             }
         }
 
-
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

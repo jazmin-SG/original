@@ -36,7 +36,7 @@ namespace InventarioEquiposFase3N
             dgvHistorialDeAsignaciones.Columns.Clear();
 
             dgvHistorialDeAsignaciones.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = nameof(Asignacion.Equipo), HeaderText = "Código del Equipo", FillWeight = 20 });
-            dgvHistorialDeAsignaciones.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = nameof(Asignacion.Empleado), HeaderText = "DUI del Empleado", FillWeight = 20 });
+            dgvHistorialDeAsignaciones.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = nameof(Asignacion.Empleado), HeaderText = "Empleado", FillWeight = 20 });
             dgvHistorialDeAsignaciones.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = nameof(Asignacion.FechaAsignacion), HeaderText = "Fecha de Asignación", FillWeight = 20 });
             dgvHistorialDeAsignaciones.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = nameof(Asignacion.FechaDevolucion), HeaderText = "Fecha de Devolución", FillWeight = 20 });
             dgvHistorialDeAsignaciones.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = nameof(Asignacion.Estado), HeaderText = "Estado", FillWeight = 20 });
@@ -97,7 +97,6 @@ namespace InventarioEquiposFase3N
 
 
 
-
             var estadoActual = equipoSeleccionado.Estado;
             var nuevaAsignacion = new Asignacion
             {
@@ -136,18 +135,7 @@ namespace InventarioEquiposFase3N
                     return;
                 }
 
-                //var equipo = _repoEquipo.BuscarPorCodigo(asignacionSeleccionada.Equipo);
-
-                //if (equipo != null)
-                //{
-                //    equipo.Estado = Estado.Disponible;
-                //    _repoEquipo.Actualizar(equipo);
-                //}
-                //else
-                //{
-                //    MessageBox.Show("No se encontró el equipo en la base de datos (la lista está vacía).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //    return;
-                //}
+                
 
                 _asignacionController.Eliminar(asignacionSeleccionada);
 
