@@ -11,7 +11,7 @@
   <Class Name="InventarioEquiposFase3N.Models.Departamento" Collapsed="true">
     <Position X="4" Y="11.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAQAAAAIAAAgAAAgAAAAAAAAAAAAAIAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAQAAAAIAAAgIAAgAAAAQAAAIACAAMAAAA=</HashCode>
       <FileName>Models\Departamento.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -67,25 +67,21 @@
   <Class Name="InventarioEquiposFase3N.Repositorios.RepositorioDepartamentos" Collapsed="true">
     <Position X="2.25" Y="11.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAQAAAQAAQAAAgAAAAAAAAAAAAAAAAIAAAAAAAIAAA=</HashCode>
       <FileName>Repositorios\RepositorioDepartamentos.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventarioEquiposFase3N.Repositorios.RepositorioEmpleados" Collapsed="true">
     <Position X="4.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAQAAAgAAQAAAAAAAAAAAAAIAAAAAACIACA=</HashCode>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAIACA=</HashCode>
       <FileName>Repositorios\RepositorioEmpleados.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Field Name="_empleados" />
-    </ShowAsCollectionAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="InventarioEquiposFase3N.Repositorios.RepositorioMantenimientos" Collapsed="true">
     <Position X="2.25" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
       <FileName>Repositorios\RepositorioMantenimientos.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -122,7 +118,7 @@
   <Class Name="InventarioEquiposFase3N.frmPrincipal" Collapsed="true">
     <Position X="0.5" Y="13.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAsIQCCCgQLIQDIGCAUQwCYJIBQBIAAAgAAABkgEA=</HashCode>
+      <HashCode>AQAAsIQCCCgQLIQDIGCAUQwCYJIBQBIACAgAAABkgEA=</HashCode>
       <FileName>Views\frmPrincipal.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -139,20 +135,21 @@
   <Class Name="InventarioEquiposFase3N.frmEquipoModal" Collapsed="true">
     <Position X="0.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAASAAAJAgAACAARECAAAAgAAAAIAAAAQAAAE=</HashCode>
+      <HashCode>AgAAAAAAgSAAAJAgAACAAVECEABAgAAIAIAAAAQAABE=</HashCode>
       <FileName>Views\frmEquipoModal.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventarioEquiposFase3N.frmEmpleados" Collapsed="true">
     <Position X="0.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAACAAQgAAAECAAAgCgAAAAAACAAAACAAAAAA=</HashCode>
+      <HashCode>AQQAAAACBCAATgAAAECAAAgCgAAAAAACCAAACEQAAIA=</HashCode>
+      <FileName>Views\frmEmpleados.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventarioEquiposFase3N.frmEmpleadoModal" Collapsed="true">
     <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CgAAAAAAgGAACJAACBCAQAESACBAAAAAASAAAEBAAAA=</HashCode>
+      <HashCode>CgAAAAAAgGAACJAACBCAQAESACBAAAAACSAAAEBAAAA=</HashCode>
       <FileName>Views\frmEmpleadoModal.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -162,25 +159,28 @@
   <Class Name="InventarioEquiposFase3N.frmDepartamentos" Collapsed="true">
     <Position X="0.5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAECAAAACBAAAAAAKAAAAAAAggAA=</HashCode>
+      <HashCode>QAAAAAAAASAABAABAECAgAACDAAAQAAKCQAAAAAggAA=</HashCode>
+      <FileName>Views\frmDepartamentos.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventarioEquiposFase3N.frmDepartamentoModal" Collapsed="true">
     <Position X="0.5" Y="11.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAJAAAACAABECACAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAACSAACJAgAACAgJECACBAAAAAAIQAAAAAAAA=</HashCode>
+      <FileName>Views\frmDepartamentoModal.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventarioEquiposFase3N.frmConsultas" Collapsed="true">
     <Position X="0.5" Y="12.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACACABAgAACAABACAAgABAACAAAAAAAAAAA=</HashCode>
+      <FileName>Views\frmConsultas.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventarioEquiposFase3N.frmAsignarEquipos" Collapsed="true">
     <Position X="0.5" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AoAAARAAACAAABACAACAAEACAgAAAAACAAAAQAABEAg=</HashCode>
+      <HashCode>AoAAATQAACACABCCAADAAEACIgAAAAACAEAAQAABEEg=</HashCode>
       <FileName>Views\frmAsignarEquipos.cs</FileName>
     </TypeIdentifier>
   </Class>

@@ -79,5 +79,11 @@ namespace InventarioEquiposFase3N
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
     }
 }

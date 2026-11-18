@@ -26,8 +26,10 @@ namespace InventarioEquiposFase3N
             var asignacionController = new AsignacionController(repositorioAsignacion, repositorioEquipos, repositorioEmpleado);
             var repositorioDepartamentos = new RepositorioDepartamentos();
             var departamentosController = new DepartamentosController(repositorioDepartamentos);
+            var repositorioMantenimientos = new RepositorioMantenimientos();
+            var mantenimientoController = new MantenimientoController(repositorioMantenimientos);
 
-            Application.Run(new frmPrincipal(empleadoController, equiposController, asignacionController, repositorioEquipos, departamentosController, servicioFotos));
+            Application.Run(new frmPrincipal(empleadoController, equiposController, asignacionController, repositorioEquipos, departamentosController, servicioFotos, mantenimientoController));
 
         }
     }

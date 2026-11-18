@@ -61,7 +61,7 @@ namespace InventarioEquiposFase3N
             cmbEquipo.FormattingEnabled = true;
             cmbEquipo.Items.AddRange(new object[] { "Computadora", "Impresora", "Monitor", "Teclado", "Mouse", "Otro" });
             cmbEquipo.Location = new Point(242, 15);
-            cmbEquipo.Margin = new Padding(4, 4, 4, 4);
+            cmbEquipo.Margin = new Padding(4);
             cmbEquipo.Name = "cmbEquipo";
             cmbEquipo.Size = new Size(188, 33);
             cmbEquipo.TabIndex = 1;
@@ -90,7 +90,7 @@ namespace InventarioEquiposFase3N
             // 
             dtpFecha.Format = DateTimePickerFormat.Short;
             dtpFecha.Location = new Point(242, 95);
-            dtpFecha.Margin = new Padding(4, 4, 4, 4);
+            dtpFecha.Margin = new Padding(4);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(312, 31);
             dtpFecha.TabIndex = 6;
@@ -108,7 +108,7 @@ namespace InventarioEquiposFase3N
             // txtDescripcion
             // 
             txtDescripcion.Location = new Point(242, 136);
-            txtDescripcion.Margin = new Padding(4, 4, 4, 4);
+            txtDescripcion.Margin = new Padding(4);
             txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(312, 123);
@@ -127,7 +127,7 @@ namespace InventarioEquiposFase3N
             // txtResponsable
             // 
             txtResponsable.Location = new Point(242, 268);
-            txtResponsable.Margin = new Padding(4, 4, 4, 4);
+            txtResponsable.Margin = new Padding(4);
             txtResponsable.Name = "txtResponsable";
             txtResponsable.Size = new Size(155, 31);
             txtResponsable.TabIndex = 10;
@@ -135,7 +135,7 @@ namespace InventarioEquiposFase3N
             // txtCosto
             // 
             txtCosto.Location = new Point(242, 309);
-            txtCosto.Margin = new Padding(4, 4, 4, 4);
+            txtCosto.Margin = new Padding(4);
             txtCosto.Name = "txtCosto";
             txtCosto.Size = new Size(155, 31);
             txtCosto.TabIndex = 11;
@@ -153,7 +153,7 @@ namespace InventarioEquiposFase3N
             // btnGuardar
             // 
             btnGuardar.Location = new Point(92, 400);
-            btnGuardar.Margin = new Padding(4, 4, 4, 4);
+            btnGuardar.Margin = new Padding(4);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(118, 36);
             btnGuardar.TabIndex = 13;
@@ -164,18 +164,19 @@ namespace InventarioEquiposFase3N
             // btnCancelar
             // 
             btnCancelar.Location = new Point(331, 400);
-            btnCancelar.Margin = new Padding(4, 4, 4, 4);
+            btnCancelar.Margin = new Padding(4);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(118, 36);
             btnCancelar.TabIndex = 14;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click_1;
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(242, 55);
-            comboBox1.Margin = new Padding(4, 4, 4, 4);
+            comboBox1.Margin = new Padding(4);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(188, 33);
             comboBox1.TabIndex = 15;
@@ -201,7 +202,7 @@ namespace InventarioEquiposFase3N
             Controls.Add(cmbEquipo);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmMantenimientoModal";

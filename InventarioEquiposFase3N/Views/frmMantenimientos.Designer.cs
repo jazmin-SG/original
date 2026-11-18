@@ -29,12 +29,8 @@ namespace InventarioEquiposFase3N
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantenimientos));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            toolStrip1 = new ToolStrip();
-            toolBtnNuevoMantenimiento = new ToolStripButton();
-            toolBtnEditarMantenimiento = new ToolStripButton();
-            toolBtnEliminarMantenimiento = new ToolStripButton();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantenimientos));
             dtgMantenimientos = new DataGridView();
             Equipo = new DataGridViewTextBoxColumn();
             TipoDeMantenimiento = new DataGridViewTextBoxColumn();
@@ -47,46 +43,14 @@ namespace InventarioEquiposFase3N
             lblPromedio = new Label();
             lblFechaReciente = new Label();
             lblTotalEquipo = new Label();
-            toolStrip1.SuspendLayout();
+            toolBtnEditarMantenimiento = new ToolStripButton();
+            toolBtnEliminarMantenimiento = new ToolStripButton();
+            toolStrip1 = new ToolStrip();
+            txtBuscarMantenimientos = new ToolStripTextBox();
+            toolBtnNuevoMantenimiento = new ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)dtgMantenimientos).BeginInit();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
-            // 
-            // toolStrip1
-            // 
-            toolStrip1.BackColor = SystemColors.GradientActiveCaption;
-            toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolBtnNuevoMantenimiento, toolBtnEditarMantenimiento, toolBtnEliminarMantenimiento });
-            toolStrip1.Location = new Point(0, 0);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1000, 34);
-            toolStrip1.TabIndex = 0;
-            toolStrip1.Text = "toolStrip1";
-            // 
-            // toolBtnNuevoMantenimiento
-            // 
-            toolBtnNuevoMantenimiento.Image = Properties.Resources.plus;
-            toolBtnNuevoMantenimiento.ImageTransparentColor = Color.Magenta;
-            toolBtnNuevoMantenimiento.Name = "toolBtnNuevoMantenimiento";
-            toolBtnNuevoMantenimiento.Size = new Size(88, 29);
-            toolBtnNuevoMantenimiento.Text = "Nuevo";
-            toolBtnNuevoMantenimiento.Click += toolBtnNuevoMantenimiento_Click;
-            // 
-            // toolBtnEditarMantenimiento
-            // 
-            toolBtnEditarMantenimiento.Image = Properties.Resources.boton_editar;
-            toolBtnEditarMantenimiento.ImageTransparentColor = Color.Magenta;
-            toolBtnEditarMantenimiento.Name = "toolBtnEditarMantenimiento";
-            toolBtnEditarMantenimiento.Size = new Size(81, 29);
-            toolBtnEditarMantenimiento.Text = "Editar";
-            // 
-            // toolBtnEliminarMantenimiento
-            // 
-            toolBtnEliminarMantenimiento.Image = (Image)resources.GetObject("toolBtnEliminarMantenimiento.Image");
-            toolBtnEliminarMantenimiento.ImageTransparentColor = Color.Magenta;
-            toolBtnEliminarMantenimiento.Name = "toolBtnEliminarMantenimiento";
-            toolBtnEliminarMantenimiento.Size = new Size(98, 29);
-            toolBtnEliminarMantenimiento.Text = "Eliminar";
-            toolBtnEliminarMantenimiento.Click += toolBtnEliminarMantenimiento_Click;
             // 
             // dtgMantenimientos
             // 
@@ -124,7 +88,7 @@ namespace InventarioEquiposFase3N
             // 
             // TipoDeMantenimiento
             // 
-            TipoDeMantenimiento.DataPropertyName = "Tipo";
+            TipoDeMantenimiento.DataPropertyName = "TipoMantenimiento";
             TipoDeMantenimiento.HeaderText = "Tipo de mantenimiento";
             TipoDeMantenimiento.MinimumWidth = 6;
             TipoDeMantenimiento.Name = "TipoDeMantenimiento";
@@ -148,7 +112,7 @@ namespace InventarioEquiposFase3N
             // 
             // Tecnico
             // 
-            Tecnico.DataPropertyName = "Tecnico";
+            Tecnico.DataPropertyName = "TecnicoResponsable";
             Tecnico.HeaderText = "Tecnico Responsable";
             Tecnico.MinimumWidth = 6;
             Tecnico.Name = "Tecnico";
@@ -171,6 +135,7 @@ namespace InventarioEquiposFase3N
             btnSalir.TabIndex = 2;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // lblSuma
             // 
@@ -208,6 +173,52 @@ namespace InventarioEquiposFase3N
             lblTotalEquipo.TabIndex = 6;
             lblTotalEquipo.Text = "Cant. por equipo: 0";
             // 
+            // toolBtnEditarMantenimiento
+            // 
+            toolBtnEditarMantenimiento.Image = Properties.Resources.boton_editar;
+            toolBtnEditarMantenimiento.ImageTransparentColor = Color.Magenta;
+            toolBtnEditarMantenimiento.Name = "toolBtnEditarMantenimiento";
+            toolBtnEditarMantenimiento.Size = new Size(81, 29);
+            toolBtnEditarMantenimiento.Text = "Editar";
+            // 
+            // toolBtnEliminarMantenimiento
+            // 
+            toolBtnEliminarMantenimiento.Image = (Image)resources.GetObject("toolBtnEliminarMantenimiento.Image");
+            toolBtnEliminarMantenimiento.ImageTransparentColor = Color.Magenta;
+            toolBtnEliminarMantenimiento.Name = "toolBtnEliminarMantenimiento";
+            toolBtnEliminarMantenimiento.Size = new Size(98, 29);
+            toolBtnEliminarMantenimiento.Text = "Eliminar";
+            toolBtnEliminarMantenimiento.Click += toolBtnEliminarMantenimiento_Click;
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.BackColor = SystemColors.GradientActiveCaption;
+            toolStrip1.ImageScalingSize = new Size(20, 20);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolBtnNuevoMantenimiento, toolBtnEditarMantenimiento, toolBtnEliminarMantenimiento, txtBuscarMantenimientos });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(1000, 34);
+            toolStrip1.TabIndex = 0;
+            toolStrip1.Text = "toolStrip1";
+            toolStrip1.ItemClicked += toolStrip1_ItemClicked;
+            // 
+            // txtBuscarMantenimientos
+            // 
+            txtBuscarMantenimientos.Alignment = ToolStripItemAlignment.Right;
+            txtBuscarMantenimientos.Name = "txtBuscarMantenimientos";
+            txtBuscarMantenimientos.Size = new Size(100, 34);
+            txtBuscarMantenimientos.ToolTipText = "Buscar Mantenimeinto";
+            
+            // 
+            // toolBtnNuevoMantenimiento
+            // 
+            toolBtnNuevoMantenimiento.Image = Properties.Resources.plus;
+            toolBtnNuevoMantenimiento.ImageTransparentColor = Color.Magenta;
+            toolBtnNuevoMantenimiento.Name = "toolBtnNuevoMantenimiento";
+            toolBtnNuevoMantenimiento.Size = new Size(88, 29);
+            toolBtnNuevoMantenimiento.Text = "Nuevo";
+            toolBtnNuevoMantenimiento.Click += toolBtnNuevoMantenimiento_Click;
+            // 
             // frmMantenimientos
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -225,30 +236,30 @@ namespace InventarioEquiposFase3N
             Name = "frmMantenimientos";
             Text = "Mantenimientos";
             Load += FrmMantenimientos_Load;
+            ((System.ComponentModel.ISupportInitialize)dtgMantenimientos).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgMantenimientos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private ToolStrip toolStrip1;
-        private ToolStripButton toolBtnNuevoMantenimiento;
-        private ToolStripButton toolBtnEditarMantenimiento;
-        private ToolStripButton toolBtnEliminarMantenimiento;
         private DataGridView dtgMantenimientos;
         private Button btnSalir;
+        private Label lblSuma;
+        private Label lblPromedio;
+        private Label lblFechaReciente;
+        private Label lblTotalEquipo;
         private DataGridViewTextBoxColumn Equipo;
         private DataGridViewTextBoxColumn TipoDeMantenimiento;
         private DataGridViewTextBoxColumn Fecha;
         private DataGridViewTextBoxColumn Descripcion;
         private DataGridViewTextBoxColumn Tecnico;
         private DataGridViewTextBoxColumn Costo;
-        private Label lblSuma;
-        private Label lblPromedio;
-        private Label lblFechaReciente;
-        private Label lblTotalEquipo;
+        private ToolStripButton toolBtnEditarMantenimiento;
+        private ToolStripButton toolBtnEliminarMantenimiento;
+        private ToolStrip toolStrip1;
+        private ToolStripButton toolBtnNuevoMantenimiento;
+        private ToolStripTextBox txtBuscarMantenimientos;
     }
 }

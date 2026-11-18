@@ -18,8 +18,8 @@ namespace InventarioEquiposFase3N
 
         private readonly Controllers.DepartamentosController _departamentosController;
         private readonly ServicioFotoEmpleado _servicioFotos;
-
-        public frmPrincipal(Controllers.EmpleadoController empleadoController, Controllers.EquiposController equiposController, Controllers.AsignacionController asignacionController, Repositorios.RepositorioEquipos repoEquiposs, Controllers.DepartamentosController departamentosController, ServicioFotoEmpleado servicioFotos)
+        private readonly Controllers.MantenimientoController _mantenimientoController;
+        public frmPrincipal(Controllers.EmpleadoController empleadoController, Controllers.EquiposController equiposController, Controllers.AsignacionController asignacionController, Repositorios.RepositorioEquipos repoEquiposs, Controllers.DepartamentosController departamentosController, ServicioFotoEmpleado servicioFotos, Controllers.MantenimientoController mantenimientoController)
         {
             InitializeComponent();
 
@@ -29,6 +29,7 @@ namespace InventarioEquiposFase3N
             _repoEquipos = repoEquiposs;
             _departamentosController = departamentosController;
             _servicioFotos = servicioFotos;
+            _mantenimientoController = mantenimientoController;
 
             pictureBox1.BackColor = Color.FromArgb(248, 249, 250);
 
@@ -64,7 +65,7 @@ namespace InventarioEquiposFase3N
 
         private void mnuMantenimiento_Click(object sender, EventArgs e)
         {
-            frmMantenimientos frm = new frmMantenimientos();
+            frmMantenimientos frm = new frmMantenimientos(_mantenimientoController);
             frm.MdiParent = this;
             frm.Show();
         }
