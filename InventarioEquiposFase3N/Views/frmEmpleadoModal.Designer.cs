@@ -107,7 +107,6 @@ namespace InventarioEquiposFase3N
             // 
             cmbDepartamentos.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDepartamentos.FormattingEnabled = true;
-            cmbDepartamentos.Items.AddRange(new object[] { "Departamento 1", "Departamento 2", "Departamento 3" });
             cmbDepartamentos.Location = new Point(135, 163);
             cmbDepartamentos.Name = "cmbDepartamentos";
             cmbDepartamentos.Size = new Size(151, 28);
