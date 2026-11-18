@@ -139,7 +139,7 @@ namespace InventarioEquiposFase3N
             picFoto.Location = new Point(499, 4);
             picFoto.Name = "picFoto";
             picFoto.Size = new Size(213, 215);
-            picFoto.SizeMode = PictureBoxSizeMode.AutoSize;
+            picFoto.SizeMode = PictureBoxSizeMode.CenterImage;
             picFoto.TabIndex = 12;
             picFoto.TabStop = false;
             // 

@@ -27,9 +27,10 @@ namespace InventarioEquiposFase3N
             _controller = controller;
             _departamentosController = departamentosController;
             _fotos = fotos;
-            _imagenSinFoto = ServicioFotoEmpleado.CrearImagenSinFoto(100);
+            _imagenSinFoto = ServicioFotoEmpleado.CrearImagenSinFoto(200);
             EmpleadoActual = empleado ?? new Empleado();
             Text = empleado == null ? "Nuevo Empleado" : "Editar Empleado";
+            picFoto.SizeMode = PictureBoxSizeMode.Zoom;
             ConfigurarBinding();
             MostrarImagen(_fotos.CargarImagen(EmpleadoActual.FotoRuta));
 

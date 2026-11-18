@@ -49,7 +49,7 @@ namespace InventarioEquiposFase3N.Controllers
                     if (emp.Id > maxId)
                         maxId = emp.Id;
                 }
-                empleado.Id = maxId + 1; // Si el máximo era 5, este será el 6.
+                empleado.Id = maxId + 1; 
             }
 
             string? rutaCreada = null;
